@@ -1,0 +1,21 @@
+{
+    "arcpath.config.title": "ArcPath Settings",
+    "arcpath.config.category.throwables": "Throwables",
+    "arcpath.config.throwable.ender_pearl": "Ender Pearl",
+    "arcpath.config.throwable.snowball": "Snowball",
+    "arcpath.config.throwable.egg": "Egg",
+    "arcpath.config.throwable.trident": "Trident",
+    "arcpath.config.throwable.bow": "Bow",
+    
+    "arcpath.config.enabled": "Enabled",
+    "arcpath.config.color": "Color",
+    "arcpath.config.line_width": "Line Width (px)",
+    "arcpath.config.transparency": "Transparency (%)",
+
+    "arcpath.config.arc": "Arc",
+    "arcpath.config.arc.dash_length": "Dash Length (ticks)",
+    "arcpath.config.arc.gap_length": "Gap Length (ticks)",
+
+    "arcpath.config.target": "Target",
+    "arcpath.config.target.radius": "Radius (px)"
+}

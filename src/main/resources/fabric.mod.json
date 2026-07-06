@@ -1,0 +1,35 @@
+{
+  "schemaVersion": 1,
+  "id": "arcpath",
+  "version": "${version}",
+  "name": "ArcPath",
+   "icon": "assets/arcpath/icon.png",
+  "description": "Shows a trajectory arc and target for throwable and projectile items.",
+  "authors": [
+    "Ryan Kirsch"
+  ],
+   "contact": {
+    "homepage": "https://modrinth.com/mod/arcpath",
+    "issues": "https://github.com/ryankgit/ArcPath/issues",
+    "sources": "https://github.com/ryankgit/ArcPath"
+  },
+  "license": "MIT",
+  "environment": "client",
+  "entrypoints": {
+    "client": [
+      "com.arcpath.ArcPathClient"
+    ],
+    "modmenu": [
+      "com.arcpath.ArcPathModMenuEntry"
+    ]
+  },
+  "mixins": [],
+  "depends": {
+    "fabricloader": ">=0.18.5",
+    "fabric-api": "*",
+    "minecraft": "~26.1",
+    "java": ">=25",
+    "cloth-config": "*",
+    "modmenu": "*"
+  }
+}
