@@ -2,7 +2,7 @@
 
 ArcPath is a **client-side** Fabric mod for Minecraft 26.1 that displays a trajectory arc when holding a throwable item. The arc shows the predicted flight path of the projectile and marks the landing point with a marker.
 
-![Example ArcPath screenshot](docs/images/2026-07-05-21.33.42.png)
+![Example ArcPath screenshot](docs/images/2026-07-05_21.33.42.png)
 
 ## Supported Throwables
 
