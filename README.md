@@ -1,6 +1,6 @@
 # ArcPath
 
-ArcPath is a **client-side** Fabric mod for Minecraft 26.1 that displays a trajectory arc when holding a throwable item. The arc shows the predicted flight path of the projectile and marks the landing point with a marker.
+ArcPath is a client-side Fabric mod for Minecraft 26.1 that displays a trajectory arc when holding a throwable item. The arc shows the predicted flight path of the projectile and marks the landing point with a marker.
 
 ![Example ArcPath screenshot](docs/images/2026-07-05_21.33.42.png)
 
@@ -24,10 +24,10 @@ ArcPath is a **client-side** Fabric mod for Minecraft 26.1 that displays a traje
 Cloth Config and Mod Menu are required at runtime; without them the game will crash on startup. All dependencies can be downloaded from [Modrinth](https://modrinth.com).
 
 ## Configuration
-
-Open the in-game Mod Menu (press `Escape` > `Mods`) and select ArcPath. Click the **Configure** button to open the settings screen. Each throwable has configurable arc and target visuals and can be enabled or disabled individually.
-
-Settings are saved to `.minecraft/config/arcpath.json` automatically.
+### Per-throwable configuration via Mod Menu:
+- Arc color, line width, dash length, gap length, transparency
+- Target color, line width, radius, transparency
+- Enable/disable arc and target marker independently per throwable
 
 ## Building from Source
 
