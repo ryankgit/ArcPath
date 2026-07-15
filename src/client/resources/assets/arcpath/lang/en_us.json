@@ -17,5 +17,8 @@
     "arcpath.config.arc.gap_length": "Gap Length (ticks)",
 
     "arcpath.config.target": "Target",
-    "arcpath.config.target.radius": "Radius (px)"
+    "arcpath.config.target.radius": "Radius (px)",
+
+    "key.category.arcpath.arcpath": "ArcPath",
+    "key.arcpath.toggle_arc": "Toggle Arc Visibility"
 }

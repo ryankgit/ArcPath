@@ -1,5 +1,6 @@
 package com.arcpath.trajectory;
 
+import com.arcpath.ArcPathState;
 import com.arcpath.config.ArcPathConfig;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
@@ -33,6 +34,9 @@ public class TrajectoryRenderer {
             return;
 
         if (mc.options.hideGui)
+            return;
+
+        if (!ArcPathState.isEnabled()) 
             return;
 
         // Disable entirely when player is submerged
