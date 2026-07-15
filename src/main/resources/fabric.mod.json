@@ -3,7 +3,7 @@
   "id": "arcpath",
   "version": "${version}",
   "name": "ArcPath",
-   "icon": "assets/arcpath/icon.png",
+  "icon": "assets/arcpath/icon.png",
   "description": "Shows a trajectory arc and target for throwable and projectile items.",
   "authors": [
     "Ryan Kirsch"
