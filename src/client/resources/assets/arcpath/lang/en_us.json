@@ -20,5 +20,6 @@
     "arcpath.config.target.radius": "Radius (px)",
 
     "key.category.arcpath.arcpath": "ArcPath",
-    "key.arcpath.toggle_arc": "Toggle Arc Visibility"
+    "key.arcpath.toggle_arc": "Toggle Arc Visibility",
+    "key.arcpath.toggle_debug": "Toggle Debug View"
 }

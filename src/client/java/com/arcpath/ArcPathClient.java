@@ -2,6 +2,7 @@ package com.arcpath;
 
 import com.arcpath.config.ArcPathConfig;
 import com.arcpath.input.ArcPathKeyBinds;
+import com.arcpath.trajectory.DebugRenderer;
 import com.arcpath.trajectory.TrajectoryRenderer;
 
 import net.fabricmc.api.ClientModInitializer;
@@ -22,10 +23,17 @@ public class ArcPathClient implements ClientModInitializer {
         ArcPathConfig.register();
         ArcPathKeyBinds.register();
         TrajectoryRenderer.register();
+        DebugRenderer.register();
 
         ClientTickEvents.END_CLIENT_TICK.register(client -> {
             while (ArcPathKeyBinds.TOGGLE_ARC.consumeClick()) {
-                ArcPathState.toggle();
+                ArcPathState.toggleEnabled();
+                // clear debug lines when arc is toggled off
+                if (!ArcPathState.isEnabled())
+                    DebugRenderer.clear();
+            }
+            while (ArcPathKeyBinds.TOGGLE_DEBUG.consumeClick()) {
+                ArcPathState.toggleDebugMode();
             }
         });
     }

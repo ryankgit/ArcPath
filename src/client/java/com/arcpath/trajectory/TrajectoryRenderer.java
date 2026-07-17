@@ -75,9 +75,10 @@ public class TrajectoryRenderer {
 
         if (throwableSettings.target.enabled) {
             Direction landingFaceDirection = sim.landingFace().orElse(Direction.UP);
-            sim.landing().ifPresent(
-                    landing -> drawLandingMarker(landing, landingFaceDirection, poseStack, lines,
-                            throwableSettings.target));
+            sim.landing().ifPresent(landing -> {
+                DebugRenderer.recordLanding(landing);
+                drawLandingMarker(landing, landingFaceDirection, poseStack, lines,throwableSettings.target);
+            });
         }
 
         // END_MAIN requires explicitly flushing the batch

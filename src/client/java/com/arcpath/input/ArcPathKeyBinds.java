@@ -11,12 +11,20 @@ public class ArcPathKeyBinds {
     public static final KeyMapping.Category ARCPATH_CATEGORY = KeyMapping.Category.register(Identifier.fromNamespaceAndPath("arcpath", "arcpath"));
 
     public static KeyMapping TOGGLE_ARC;
+    public static KeyMapping TOGGLE_DEBUG;
 
     public static void register() {
         TOGGLE_ARC = KeyMappingHelper.registerKeyMapping(new KeyMapping(
             "key.arcpath.toggle_arc",
             InputConstants.Type.KEYSYM,
             InputConstants.KEY_Y,
+            ARCPATH_CATEGORY
+        ));
+
+        TOGGLE_DEBUG = KeyMappingHelper.registerKeyMapping(new KeyMapping(
+            "key.arcpath.toggle_debug",
+            InputConstants.Type.KEYSYM,
+            InputConstants.KEY_U,
             ARCPATH_CATEGORY
         ));
     }
