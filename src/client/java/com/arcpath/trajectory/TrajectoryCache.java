@@ -17,6 +17,8 @@ public class TrajectoryCache {
     // How many ticks to wait before forcing a recalculation regardless
     private static final int MAX_CACHE_TICKS = 10;
 
+    private Vec3 smoothedVelocity = Vec3.ZERO;
+
     private TrajectorySimulationResult cachedResult;
     private ProjectileType cachedProjectileType;
 
@@ -29,7 +31,13 @@ public class TrajectoryCache {
         ticksSinceCached++;
 
         if (shouldRecalculate(player, type)) {
-            cachedResult = TrajectorySimulator.simulate(player, level).orElse(null);
+            Vec3 currentVelocity = player.getDeltaMovement();
+            double x = lerp(smoothedVelocity.x, currentVelocity.x);
+            double y = lerp(smoothedVelocity.y, currentVelocity.y);
+            double z = lerp(smoothedVelocity.z, currentVelocity.z);
+            smoothedVelocity = new Vec3(x, y, z);
+
+            cachedResult = TrajectorySimulator.simulate(player, level, smoothedVelocity).orElse(null);
             cachedProjectileType = type;
             cachedYaw = player.getYRot();
             cachedPitch = player.getXRot();
@@ -62,5 +70,10 @@ public class TrajectoryCache {
         double moveDelta = player.position().distanceTo(cachedPos);
 
         return yawDelta > LOOK_THRESHOLD || pitchDelta > LOOK_THRESHOLD || moveDelta > MOVE_THRESHOLD;
+    }
+
+    // Linear Interpolation
+    private static double lerp(double a, double b) {
+        return a + (b - a) * 0.2;
     }
 }

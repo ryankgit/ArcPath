@@ -24,7 +24,7 @@ public class TrajectorySimulator {
 
     private static final int MAX_TICKS = 240;
 
-    public static Optional<TrajectorySimulationResult> simulate(LocalPlayer player, Level level) {
+    public static Optional<TrajectorySimulationResult> simulate(LocalPlayer player, Level level, Vec3 playerVelocity) {
         var heldItem = player.getMainHandItem();
         var type = ProjectileType.fromItem(heldItem.getItem());
         if (type.isEmpty())
@@ -33,9 +33,9 @@ public class TrajectorySimulator {
             return Optional.empty();
 
         ProjectileType projectile = type.get();
-        Vec3 pos = player.getEyePosition(1.0f);
-        Vec3 velocity = player.getLookAngle().scale(projectile.speed);
+        Vec3 velocity = player.getLookAngle().scale(projectile.speed).add(new Vec3(playerVelocity.x, 0, playerVelocity.z));
 
+        Vec3 pos = player.getEyePosition(1.0f);
         List<Vec3> points = new ArrayList<>();
         points.add(pos);
 
