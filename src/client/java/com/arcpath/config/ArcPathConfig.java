@@ -30,6 +30,9 @@ public class ArcPathConfig implements ConfigData {
         public int dashLength = 3;
         public int gapLength = 3;
         public int transparency = 0;
+        public ArcStyle style = ArcStyle.DASHED;
+        public boolean gradientEnabled = false;
+        public Color gradientColor = Color.ofOpaque(0xFF0000);
     }
 
     // Default TargetSettings
@@ -39,6 +42,7 @@ public class ArcPathConfig implements ConfigData {
         public int lineWidth = 6;
         public int targetSize = 20;
         public int transparency = 0;
+        public MarkerShape shape = MarkerShape.CIRCLE;
     }
 
     public static ArcPathConfig get() {

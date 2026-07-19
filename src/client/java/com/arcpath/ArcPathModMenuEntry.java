@@ -2,6 +2,8 @@ package com.arcpath;
 
 import com.arcpath.config.ArcPathConfig;
 import com.arcpath.config.ArcPathConfig.ThrowableSettings;
+import com.arcpath.config.ArcStyle;
+import com.arcpath.config.MarkerShape;
 import com.terraformersmc.modmenu.api.ConfigScreenFactory;
 import com.terraformersmc.modmenu.api.ModMenuApi;
 
@@ -37,6 +39,10 @@ public class ArcPathModMenuEntry implements ModMenuApi {
 	private static final MutableComponent GAP_LENGTH_LABEL = Component.translatable("arcpath.config.arc.gap_length");
 	private static final MutableComponent TARGET_LABEL = Component.translatable("arcpath.config.target");
 	private static final MutableComponent RADIUS_LABEL = Component.translatable("arcpath.config.target.radius");
+	private static final MutableComponent TARGET_SHAPE_LABEL = Component.translatable("arcpath.config.target.shape");
+	private static final MutableComponent ARC_STYLE_LABEL = Component.translatable("arcpath.config.arc.style");
+	private static final MutableComponent GRADIENT_ENABLED_LABEL = Component.translatable("arcpath.config.arc.gradient_enabled");
+	private static final MutableComponent GRADIENT_COLOR_LABEL = Component.translatable("arcpath.config.gradient_color");
 
 	@Override
 	public ConfigScreenFactory<?> getModConfigScreenFactory() {
@@ -100,11 +106,11 @@ public class ArcPathModMenuEntry implements ModMenuApi {
 				})
 				.build());
 
-		sub.add(eb.startColorField(COLOR_LABEL, settings.arc.color.getColor() & 0xFFFFFF)
-				.setDefaultValue(0xFFFFFF)
-				.setSaveConsumer(val -> {
-					settings.arc.color = Color.ofOpaque(val);
-					onSave.accept(settings);
+		sub.add(eb.startEnumSelector(ARC_STYLE_LABEL, ArcStyle.class, settings.arc.style)
+				.setDefaultValue(ArcStyle.DASHED)
+				.setSaveConsumer(val -> { 
+					settings.arc.style = val; 
+					onSave.accept(settings); 
 				})
 				.build());
 
@@ -139,6 +145,30 @@ public class ArcPathModMenuEntry implements ModMenuApi {
 					onSave.accept(settings);
 				})
 				.build());
+
+		sub.add(eb.startColorField(COLOR_LABEL, settings.arc.color.getColor() & 0xFFFFFF)
+				.setDefaultValue(0xFFFFFF)
+				.setSaveConsumer(val -> {
+					settings.arc.color = Color.ofOpaque(val);
+					onSave.accept(settings);
+				})
+				.build());
+
+		sub.add(eb.startBooleanToggle(GRADIENT_ENABLED_LABEL, settings.arc.gradientEnabled)
+				.setDefaultValue(false)
+				.setSaveConsumer(val -> { 
+					settings.arc.gradientEnabled = val; 
+					onSave.accept(settings); 
+				})
+				.build());
+
+		sub.add(eb.startColorField(GRADIENT_COLOR_LABEL, settings.arc.gradientColor.getColor() & 0xFFFFFF)
+				.setDefaultValue(0xFF0000)
+				.setSaveConsumer(val -> { 
+					settings.arc.gradientColor = Color.ofOpaque(val); 
+					onSave.accept(settings); 
+				})
+				.build());
 	}
 
 	private void addTargetEntries(ConfigEntryBuilder eb, SubCategoryBuilder sub, ThrowableSettings settings, Consumer<ThrowableSettings> onSave) {
@@ -150,6 +180,14 @@ public class ArcPathModMenuEntry implements ModMenuApi {
 				.setSaveConsumer(val -> {
 					settings.target.enabled = val;
 					onSave.accept(settings);
+				})
+				.build());
+
+		sub.add(eb.startEnumSelector(TARGET_SHAPE_LABEL, MarkerShape.class, settings.target.shape)
+				.setDefaultValue(MarkerShape.CIRCLE)
+				.setSaveConsumer(val -> { 
+					settings.target.shape = val; 
+					onSave.accept(settings); 
 				})
 				.build());
 

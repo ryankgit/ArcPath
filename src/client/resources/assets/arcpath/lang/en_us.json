@@ -18,6 +18,18 @@
 
     "arcpath.config.target": "Target",
     "arcpath.config.target.radius": "Radius (px)",
+    "arcpath.config.target.shape": "Marker Shape",
+
+    "arcpath.config.arc.style": "Arc Style",
+    "arcpath.config.arc.gradient_enabled": "Gradient Enabled",
+    "arcpath.config.arc.gradient_color": "Gradient Color (Landing End)",
+
+    "arcpath.enum.arcstyle.dashed": "Dashed",
+    "arcpath.enum.arcstyle.solid": "Solid",
+
+    "arcpath.enum.markershape.circle": "Circle",
+    "arcpath.enum.markershape.diamond": "Diamond",
+    "arcpath.enum.markershape.square": "Square",
 
     "key.category.arcpath.arcpath": "ArcPath",
     "key.arcpath.toggle_arc": "Toggle Arc Visibility",
