@@ -4,13 +4,47 @@ ArcPath is a client-side Fabric mod for Minecraft 26.1 that displays a trajector
 
 ![Example ArcPath screenshot](docs/images/2026-07-05_21.33.42.png)
 
-## Supported Throwables
+## Features
+- Trajectory arc with configurable style per throwable item
+- Gradient color support - blend from a start color to a second color along the arc
+- Landing target marker with configurable shape per throwable
+- Calculated trajectory accounts for player velocity
+- Entity hit detection - arc stops at living entities and the target marker appears on them
+- Arc toggle keybind (default: Y) to show/hide all arcs without opening the config screen
+- Debug overlay (default: U) showing previously calculated trajectories
 
+## Supported Throwables
 - Ender Pearls
 - Snowballs
 - Eggs
 - Tridents
 - Arrows (via Bow & Crossbow)
+
+## Configuration
+Open Options → Mods → ArcPath → Configure to access the config screen. Each throwable has its own sub-category with independent Arc and Target settings.
+
+### Arc Settings (per throwable)
+- Enable/disable
+- Color
+- Line width
+- Style (Dashed / Solid)
+- Dash length and gap length (Dashed only)
+- Transparency
+- Gradient color
+
+### Target Settings (per throwable)
+- Enable/disable
+- Color
+- Line width
+- Shape (Circle / Diamond / Square)
+- Radius
+- Transparency
+
+## Keybinds
+| Keybind | Default | Description |
+|---|---|---|
+| Toggle Arc | Y | Show/hide all arc/marker rendering |
+| Toggle Debug | U | Show/hide the debug trajectory overlay |
 
 ## Requirements
 
@@ -22,12 +56,6 @@ ArcPath is a client-side Fabric mod for Minecraft 26.1 that displays a trajector
 | Mod Menu | 18.0.0-beta.1 or newer |
 
 Cloth Config and Mod Menu are required at runtime; without them the game will crash on startup. All dependencies can be downloaded from [Modrinth](https://modrinth.com).
-
-## Configuration
-### Per-throwable configuration via Mod Menu:
-- Arc color, line width, dash length, gap length, transparency
-- Target color, line width, radius, transparency
-- Enable/disable arc and target marker independently per throwable
 
 ## Building from Source
 
